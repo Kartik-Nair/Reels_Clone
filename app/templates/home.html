@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Reels</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='insta_style.css') }}">
+
+</head>
+<body>
+    <h1>Reels</h1>
+    
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('sample.logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('sample.register') }}">Register</a>
+        <a href="{{ url_for('sample.login') }}">Login</a>
+    {% endif %}
+
+    <!-- {% if current_user.is_authenticated %}
+        <a href="{{ url_for('sample.upload') }}">Upload Video</a>
+    {% endif %} -->
+
+    <div>
+        {% for video in videos %}
+        <div class="video-card">
+            <video src="{{ url_for('static', filename='videos/' + video.video) }}" controls width="320" height="240" loop></video>
+            <h2>{{video.user.username}}: {{ video.title }}</h2>
+            <p>{{ video.description }}</p>
+        </div>
+
+        
+        <div class="video-actions">
+            {% if current_user.is_authenticated %}
+            <button class="like-button" data-video="{{ video.id }}">Like</button>
+            {% endif %}
+            <span class="like-count">{{ like_counts[video.id] }} likes</span>
+            <!-- <span class="like-count">{{ like_count }} likes</span> -->
+            <!-- <span class="like-count">0 likes</span> -->
+        </div>
+        
+        <div class="comments">
+            <h2>Comments:</h2>
+            <ul>
+                {% for comment in video.comments %}
+                    <li>{{ comment.user.username }}: {{ comment.text }}</li>
+                {% endfor %}
+            </ul>
+            
+            {% if current_user.is_authenticated %}
+            <form class="comment-form" data-video="{{ video.id }}">
+                <input type="text" name="text" placeholder="Add a comment">
+                <button type="submit">Post</button>
+            </form>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='like_comment.js') }}"></script>
+   
+</body>
+</html>

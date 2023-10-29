@@ -1,0 +1,37 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Video - Reels Clone</title>
+</head>
+<body>
+    <div class="video-details">
+        <video src="{{ url_for('static', filename='videos/' + video.video) }}" controls></video>
+        <h1>{{ video.title }}</h1>
+        <p>{{ video.description }}</p>
+    </div>
+    <div class="interactions">
+        <a href="#">Like</a>
+        <a href="#">Share</a>
+    </div>
+    <div class="comments">
+        <h2>Comments</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.text }}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+        <ul>
+            {% for comment in video.comments %}
+            <li>
+                <strong>{{ comment.user.username }}</strong>
+                <span>{{ comment.text }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> -->

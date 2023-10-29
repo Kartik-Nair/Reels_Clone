@@ -1,0 +1,138 @@
+/* your-styles.css */
+
+/* General styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* Navigation links */
+a {
+    text-decoration: none;
+    color: #3897f0;
+    margin: 10px;
+}
+
+/* Video card styling */
+.video-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    width:"320"; 
+    height:"240";
+    /* width: 100%;
+    height: auto; */
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Like button and count styling */
+.like-button {
+    background-color: #3897f0;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.like-count {
+    margin-left: 10px;
+}
+
+/* Comments styling */
+.comments {
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.comment-form {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Instagram-like styling */
+.like-button:hover {
+    background-color: #357ABD;
+}
+
+.comment-form input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.comment-form button[type="submit"] {
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.comment-form button[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+.comment-form input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+/* Instagram-like profile image styling */
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Instagram-like user comment styling */
+.user-comment {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.user-comment p {
+    margin: 0;
+}

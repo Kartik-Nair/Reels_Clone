@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video - Reels Clone</title>
+</head>
+<body>
+    <h1>Upload Video</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.title.label }}
+            {{ form.title(size=20) }}
+        </div>
+        <div>
+            {{ form.description.label }}
+            {{ form.description(rows=4, cols=20) }}
+        </div>
+        <div>
+            {{ form.video.label }}
+            {{ form.video }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+
+    </form>
+</body>
+</html>
