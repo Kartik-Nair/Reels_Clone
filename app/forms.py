@@ -26,23 +26,10 @@ class VideoUploadForm(FlaskForm):
     def save_video(self):
          if 'video' in request.files:
             video_file = request.files['video']
-            print('===================================================================')
-            print(video_file)
-            print('===================================================================')
             if video_file:
-                # filename = secure_filename(video_file.filename)
                 video_path = os.path.join(os.path.abspath("static/videos") , self.title.data+'.mp4')
                 print("Reached till here: ", video_path)
                 os.makedirs(os.path.dirname(video_path), exist_ok=True)
                 video_file.save(video_path)
                 print("Saving was success")
                 return video_path
-
-        #  if self.video.data:
-        #     video_file = self.video.data
-        #     video_path = os.path.join(os.path.abspath("static/videos") , self.title.data+'.mp4')
-        #     print("Reached till here: ", video_path)
-        #     os.makedirs(os.path.dirname(video_path), exist_ok=True)
-        #     video_file.save(video_path)
-        #     print("Saving was success")
-        #     return video_path

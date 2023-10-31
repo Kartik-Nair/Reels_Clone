@@ -16,10 +16,6 @@
         <a href="{{ url_for('sample.login') }}">Login</a>
     {% endif %}
 
-    <!-- {% if current_user.is_authenticated %}
-        <a href="{{ url_for('sample.upload') }}">Upload Video</a>
-    {% endif %} -->
-
     <div>
         {% for video in videos %}
         <div class="video-card">
@@ -34,8 +30,6 @@
             <button class="like-button" data-video="{{ video.id }}">Like</button>
             {% endif %}
             <span class="like-count">{{ like_counts[video.id] }} likes</span>
-            <!-- <span class="like-count">{{ like_count }} likes</span> -->
-            <!-- <span class="like-count">0 likes</span> -->
         </div>
         
         <div class="comments">

@@ -7,7 +7,6 @@ from app.forms import RegistrationForm, LoginForm, VideoUploadForm
 from flask import jsonify
 
 bp=Blueprint('sample', __name__)
-# db.init_app(app)
 
 @bp.route('/')
 def home():
@@ -38,7 +37,6 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 @bp.route('/login', methods=['GET', 'POST'])
-# @bp.route('/', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('sample.home'))
@@ -66,9 +64,8 @@ def upload():
     form = VideoUploadForm()
     if form.validate_on_submit():
         video = Video(title=form.title.data, description=form.description.data, user=current_user)
-        # Handle video upload and storage here
         video_path = form.save_video()
-        video.video = form.title.data+'.mp4'  # Store the video in the appropriate location
+        video.video = form.title.data+'.mp4'  
         db.session.add(video)
         db.session.commit()
         flash('Video uploaded successfully!', 'success')
@@ -88,8 +85,6 @@ def video(video_id):
 @bp.route('/like/<int:video_id>', methods=['POST'])
 def like(video_id):
     print("inside like method")
-    # Implement the logic to record a like in the database and return the new like count
-    # For example, increment the like count for the video with the given ID
     video = Video.query.get(video_id)
     
     if video:
@@ -105,8 +100,6 @@ def like(video_id):
 @bp.route('/comment/<int:video_id>', methods=['POST'])
 def comment(video_id):
     text = request.form.get('text')
-    # Implement the logic to save the comment to the database
-    # Create a new Comment object and associate it with the video
     video = Video.query.get(video_id)
     if video:
         new_comment = Comment(user_id=current_user.id, video_id=video.id, text=text)
